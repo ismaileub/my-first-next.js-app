@@ -44,10 +44,10 @@ export default function ServicesPage() {
     return (
 
 
-        <div>
+        <div className="flex flex-col justify-center items-center  ">
             <p className="text-center mb-6">Services Page.</p>
             <h3>Clicked to see details</h3>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-4 w-1/2">
                 {
                     data.map((service) => (
                         <div className="border border-amber-200 w-48" key={service._id}>

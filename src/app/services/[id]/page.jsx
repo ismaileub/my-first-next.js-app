@@ -41,21 +41,27 @@ const ServicesDetailsPage = ({ params }) => {
     ];
 
 
-    const id = params.id;
+    const id = params?.id;
     const singleData = data.find(d => d._id == id);
-    return (
-        <div>
-            <h2>Services Details</h2>
-            <p>ID: {id}</p>
-            <img
-                src={singleData.service_image}
-                alt={singleData.service_name}
-                style={{ width: "100%", height: "180px", objectFit: "cover", borderRadius: "8px" }}
-            />
-            <h3 style={{ marginTop: "15px" }}>{singleData.service_name}</h3>
-            <p>{singleData.service_description}</p>
-        </div>
-    );
+    if (singleData) {
+        return (
+            <div>
+                <h2>Services Details</h2>
+                <p>ID: {id}</p>
+                <img
+                    src={singleData.service_image}
+                    alt={singleData.service_name}
+                    style={{ width: "100%", height: "180px", objectFit: "cover", borderRadius: "8px" }}
+                />
+                <h3 style={{ marginTop: "15px" }}>{singleData.service_name}</h3>
+                <p>{singleData.service_description}</p>
+            </div>
+        );
+    } else {
+        return (
+            <p>Not found</p>
+        )
+    }
 };
 
 export default ServicesDetailsPage;
